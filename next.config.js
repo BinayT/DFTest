@@ -4,4 +4,11 @@ const nextConfig = {
   swcMinify: true,
 }
 
-module.exports = nextConfig
+const images = {
+  domains: ['reqres.in']
+}
+
+module.exports = {
+  nextConfig,
+  images
+}
