@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
+import Head from 'next/head'
 
 import { setUser } from '../redux/slices/userSlice'
 
@@ -66,22 +67,29 @@ const Login = () => {
 
 
     return (
-        <div className={loginStyles.main}>
-            <p className={loginStyles.sign} align="center">Sign in</p>
+        <>
+            <Head>
+                <title>Danelfin Login</title>
+                <meta name="description" content="You can login to view the users from https://reqres.in/" />
+            </Head>
 
-            <form className={loginStyles.form1} onSubmit={submitHandler}>
+            <div className={loginStyles.main}>
+                <p className={loginStyles.sign} align="center">Sign in</p>
 
-                {emailError && <p className={loginStyles.error}>{emailError}</p>}
-                <input className={loginStyles.un} type="email" name="email" align="center" placeholder="xyz@abc.com"
-                    value={email} onChange={e => setEmail(e.target.value)} />
+                <form className={loginStyles.form1} onSubmit={submitHandler}>
 
-                {passwordError && <p className={loginStyles.error}>{passwordError}</p>}
-                <input className={loginStyles.pass} type="password" name="password" align="center" placeholder="Password"
-                    value={password} onChange={e => setPassword(e.target.value)} />
+                    {emailError && <p className={loginStyles.error}>{emailError}</p>}
+                    <input className={loginStyles.un} type="email" name="email" align="center" placeholder="xyz@abc.com"
+                        value={email} onChange={e => setEmail(e.target.value)} />
 
-                <input type="submit" value="Submit" className={loginStyles.submit} />
-            </ form>
-        </div>
+                    {passwordError && <p className={loginStyles.error}>{passwordError}</p>}
+                    <input className={loginStyles.pass} type="password" name="password" align="center" placeholder="Password"
+                        value={password} onChange={e => setPassword(e.target.value)} />
+
+                    <input type="submit" value="Submit" className={loginStyles.submit} />
+                </ form>
+            </div>
+        </>
     )
 }
 
