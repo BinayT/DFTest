@@ -1,12 +1,19 @@
 import { useSelector } from 'react-redux'
 import Link from 'next/link'
+import { useDispatch } from 'react-redux'
 
+import { setUser } from '../redux/slices/userSlice'
 import NavAuth from './NavAuth'
-
 import navStyles from '../styles/Nav.module.css'
 
 const Navbar = () => {
+    const dispatch = useDispatch()
     const { user } = useSelector(state => state.user)
+
+    const logout = () => {
+        console.log('hi')
+        dispatch(setUser(null))
+    }
 
     return (
         <nav className={navStyles.nav}>
@@ -14,7 +21,7 @@ const Navbar = () => {
                 <li>
                     <Link href='/'>Home</Link>
                 </li>
-                <li className={navStyles.nav__auth__button}>
+                <li className={navStyles.nav__auth__button} onClick={user !== null ? logout : undefined}>
                     <NavAuth user={user} />
                 </li>
             </ul>

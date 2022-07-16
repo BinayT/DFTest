@@ -40,7 +40,6 @@ const Login = () => {
                 router.push('/users')
             }
         } catch (error) {
-            console.log(error)
             setEmailError("User doesn't exist")
         }
     }
