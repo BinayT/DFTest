@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 import cardStyles from '../styles/User.module.css'
 
-const Card = ({ data }) => {
+export const Card = ({ data }) => {
 
     return (
         <div className={cardStyles.card} key={data.id}>
@@ -16,5 +16,3 @@ const Card = ({ data }) => {
         </div>
     )
 }
-
-export default Card

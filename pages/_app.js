@@ -1,5 +1,9 @@
+import { Provider } from 'react-redux'
+
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
+
+import { store } from '../redux/store'
 
 import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,10 +11,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Navbar />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <Provider store={store}>
+        <Navbar />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </Provider>
     </>
 
   )
