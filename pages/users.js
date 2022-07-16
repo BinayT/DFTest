@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import cardStyles from '../styles/User.module.css'
-import Card from '../components/Card'
+import { Card } from '../components/Card'
 import { Pagination } from '../components/Pagination'
 import { PostsPerPage } from '../components/PostsPerPage'
 

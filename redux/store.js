@@ -1,9 +1,8 @@
-import { configureStore, applyMiddleware } from "@reduxjs/toolkit"
-
-import { userTokenSlice } from './slices/userTokenSlice'
+import { configureStore } from "@reduxjs/toolkit"
+import userSlice from './slices/userSlice'
 
 export const store = configureStore({
     reducer: {
-        userToken: userTokenSlice
+        userToken: userSlice
     }
 })

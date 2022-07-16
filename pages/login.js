@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
+import { useDispatch } from 'react-redux'
 
 import loginStyles from '../styles/Login.module.css'
 
@@ -30,6 +31,8 @@ const Login = () => {
             if (data !== 200) throw Error(data)
             // If there's no error and status code is 200, then we send them to the users page.
             if (data === 200) {
+                const userName = userData.email.split('.')[0]
+                console.log(userName)
                 router.push('/users')
 
             }
