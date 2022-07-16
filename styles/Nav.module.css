@@ -19,13 +19,12 @@
 
 .nav ul li a {
     margin: 5px 15px;
-
 }
 
-.nav__auth__button {
-    background-color: #199319;
+.nav_button {
+    text-decoration: none;
     color: white;
-    padding: 8px;
-    border-radius: 7%;
-
+    border: 1px solid white;
+    height: auto;
+    padding: 10px;
 }

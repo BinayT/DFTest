@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux';
+import Router from "next/router";
 
 import cardStyles from '../styles/User.module.css'
 import { Card } from '../components/Card'
 import { Pagination } from '../components/Pagination'
 import { PostsPerPage } from '../components/PostsPerPage'
+import Redirect from '../components/Redirect';
 
 const Users = ({ page1, page2 }) => {
+    const { user } = useSelector(state => state.user)
+    console.log(user)
     const data = [...page1.data, ...page2.data]
 
     const [posts] = useState(data)
@@ -18,6 +23,10 @@ const Users = ({ page1, page2 }) => {
     const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+    if (user === null) {
+        return <Redirect />
+    }
 
     return (
         <>
