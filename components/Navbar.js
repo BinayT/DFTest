@@ -11,7 +11,6 @@ const Navbar = () => {
     const { user } = useSelector(state => state.user)
 
     const logout = () => {
-        console.log('hi')
         dispatch(setUser(null))
     }
 
@@ -19,7 +18,7 @@ const Navbar = () => {
         <nav className={navStyles.nav}>
             <ul>
                 <li>
-                    <Link href='/'>Home</Link>
+                    <Link href='/'><a className={navStyles.nav_button}>Home</a></Link>
                 </li>
                 <li className={navStyles.nav__auth__button} onClick={user !== null ? logout : undefined}>
                     <NavAuth user={user} />
