@@ -2,11 +2,15 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
 
+import { setUser } from '../redux/slices/userSlice'
+
 import loginStyles from '../styles/Login.module.css'
 
 const URL = 'https://reqres.in/api/login'
 
 const Login = () => {
+    const dispatch = useDispatch();
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [emailError, setEmailError] = useState('')
@@ -32,11 +36,11 @@ const Login = () => {
             // If there's no error and status code is 200, then we send them to the users page.
             if (data === 200) {
                 const userName = userData.email.split('.')[0]
-                console.log(userName)
+                dispatch(setUser(userName))
                 router.push('/users')
-
             }
         } catch (error) {
+            console.log(error)
             setEmailError("User doesn't exist")
         }
     }
